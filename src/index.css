@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brass Keel palette */
+    --bk-page:          #F7F8FA;
+    --bk-ink:           #16233F;
+    --bk-ink-muted:     #4A5872;
+    --bk-surface:       #FFFFFF;
+    --bk-surface-raised:#EEF1F5;
+    --bk-border:        #D8DEE6;
+    --bk-accent:        #92400E;
+    --bk-accent-bright: #B45309;
+    --bk-accent-wash:   #FDF3E3;
+    --bk-navy-deep:     #0E1830;
+    --bk-danger:        #B91C1C;
+
+    /* shadcn/ui compatible tokens mapped to Brass Keel */
+    --background: 220 14% 96%;     /* bk-page #F7F8FA */
+    --foreground: 220 40% 17%;     /* bk-ink  #16233F */
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 17%;
+    --primary: 220 40% 17%;        /* bk-ink */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 20% 92%;      /* bk-surface-raised */
+    --secondary-foreground: 220 40% 17%;
+    --muted: 215 20% 92%;
+    --muted-foreground: 214 21% 36%; /* bk-ink-muted */
+    --accent: 28 75% 30%;          /* bk-accent */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 73% 41%;      /* bk-danger */
+    --destructive-foreground: 0 0% 100%;
+    --border: 213 23% 87%;         /* bk-border */
+    --input: 213 23% 87%;
+    --ring: 32 62% 36%;            /* bk-accent-bright */
+    --radius: 0.25rem;
+    --chart-1: 32 62% 36%;
+    --chart-2: 220 40% 17%;
+    --chart-3: 214 21% 36%;
+    --chart-4: 28 75% 30%;
+    --chart-5: 215 20% 55%;
+
+    --font-sans: 'Libre Franklin', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Libre Franklin', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+    --scrollbar-thumb: hsl(var(--muted-foreground) / 0.3);
+    --scrollbar-track: transparent;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-width: thin;
+  }
+
+  @supports not (scrollbar-color: auto) {
+    *::-webkit-scrollbar { width: 8px; height: 8px; }
+    *::-webkit-scrollbar-thumb { background-color: var(--scrollbar-thumb); border-radius: 9999px; }
+    *::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+}
